@@ -10,7 +10,9 @@ Route::get('/form', function(){
     return view('VistaAlta');
 });
 
-
+Route::get('/inicio', function(){
+    return view('menu');
+});
 
 
 

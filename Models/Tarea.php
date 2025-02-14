@@ -9,24 +9,29 @@ class Tarea extends Model
 {
     use HasFactory;
 
+    protected $primaryKey = 'id';
+
+    protected $table = 'tareas';
+
     protected $fillable = [
-        'cliente',
-        'contacto',
-        'telefono',
-        'email',
+        'cliente_id',
+        'operario_id',
+        'persona_contacto',
+        'telefono_contacto',
+        'correo_contacto',
         'direccion',
         'poblacion',
         'codigo_postal',
         'provincia',
+        'descripcion',
         'estado',
         'fecha_creacion',
         'fecha_realizacion',
-        'operario',
-        'descripcion',
         'anotaciones_anteriores',
         'anotaciones_posteriores',
         'fichero_resumen',
     ];
+
 }
 
 ?>

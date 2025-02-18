@@ -43,7 +43,7 @@
 <body>
     <div class="form-container">
         <h2>Formulario de Cliente</h2>
-        <form action="/mi-proyecto2/public/guardar-cliente" method="POST">
+        <form action="{{ url('tarea') }}" method="POST">
             @csrf
             <!-- CIF -->
             <div class="form-group">

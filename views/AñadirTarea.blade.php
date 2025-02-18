@@ -1,6 +1,8 @@
 @extends('menu')
 @section('content')
 
+
+
 <?php
 $provincias = [
     'Álava', 'Albacete', 'Alicante', 'Almería', 'Asturias', 'Ávila', 'Badajoz', 'Baleares', 'Barcelona', 'Burgos',
@@ -53,7 +55,10 @@ $provincias = [
 <body>
     <div class="form-container">
         <h2>Formulario de Tareas</h2>
-        <form action="/mi-proyecto2/public/guardar-tarea" method="POST" enctype="multipart/form-data">
+        @if($errors->any())
+            {{ implode('', $errors->all(':message')) }}
+        @endif
+        <form action= "{{ url('tarea') }}" method="POST" enctype="multipart/form-data">
             @csrf
             <!-- Persona de contacto -->
             <div class="form-group">
@@ -112,9 +117,9 @@ $provincias = [
             <div class="form-group">
                 <label for="estado">Estado</label>
                 <select id="estado" name="estado" class="form-control" required>
-                    <option value="P">Pendiente</option>
-                    <option value="R">Realizada</option>
-                    <option value="C">Cancelada</option>
+                    <option value="Pendiente">Pendiente</option>
+                    <option value="Realizada">Realizada</option>
+                    <option value="Cancelada">Cancelada</option>
                 </select>
             </div>
 
@@ -122,6 +127,17 @@ $provincias = [
             <div class="form-group">
                 <label for="fecha_realizacion">Fecha de Realización</label>
                 <input type="date" id="fecha_realizacion" name="fecha_realizacion" class="form-control" required>
+            </div>
+
+            <!-- Cliente encargado -->
+            <div class="form-group">
+                <label for="cliente">Cliente Encargado</label>
+                <select id="cliente" name="cliente" class="form-control" required>
+                    <option value="" disabled selected>Seleccione un cliente</option>
+                    @foreach ($clientes as $cliente)
+                        <option value="{{ $cliente->id }}">{{ $cliente->nombre }}</option>
+                    @endforeach
+                </select>
             </div>
 
             <!-- Operario encargado -->

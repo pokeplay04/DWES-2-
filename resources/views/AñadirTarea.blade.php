@@ -58,7 +58,7 @@ $provincias = [
         @if($errors->any())
             {{ implode('', $errors->all(':message')) }}
         @endif
-        <form action= "{{ url('tareas') }}" method="POST" enctype="multipart/form-data">
+        <form action= "{{ url('tarea') }}" method="POST" enctype="multipart/form-data">
             @csrf
             <!-- Persona de contacto -->
             <div class="form-group">
@@ -117,9 +117,9 @@ $provincias = [
             <div class="form-group">
                 <label for="estado">Estado</label>
                 <select id="estado" name="estado" class="form-control" required>
-                    <option value="P">Pendiente</option>
-                    <option value="R">Realizada</option>
-                    <option value="C">Cancelada</option>
+                    <option value="Pendiente">Pendiente</option>
+                    <option value="Realizada">Realizada</option>
+                    <option value="Cancelada">Cancelada</option>
                 </select>
             </div>
 

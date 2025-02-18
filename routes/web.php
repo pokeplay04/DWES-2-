@@ -27,7 +27,7 @@ Route::get('/verTareas', function(){
     return view('verTareas');
 });
 
-Route::resource('tareas', NuevaControlador::class);
+Route::resource('tarea', NuevaControlador::class);
 Route::resource('operario', NuevaControlador::class);
 
 

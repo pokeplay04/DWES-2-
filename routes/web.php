@@ -1,6 +1,7 @@
 <?php
 use App\Http\Controllers\verTareaController;
 use App\Http\Controllers\NuevaControlador;
+use App\Http\Controllers\clienteControlador;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
@@ -28,7 +29,9 @@ Route::get('/verTareas', function(){
 });
 
 Route::resource('tarea', NuevaControlador::class);
+
+//cambiar a futuro por controlador de operarios
 Route::resource('operario', NuevaControlador::class);
 
-
+Route::resource('cliente', clienteControlador::class);
 ?>

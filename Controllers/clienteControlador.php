@@ -13,7 +13,8 @@ class clienteControlador
      */
     public function index()
     {
-        //
+        $clientes = Cliente::paginate(10); // Recupera los clientes con paginación
+        return view('verClientes', compact('clientes'));    
     }
 
     /**
@@ -21,7 +22,8 @@ class clienteControlador
      */
     public function create()
     {
-        //
+        $clientes = Cliente::all();
+        return view('AñadirCliente', compact('clientes'));
     }
 
     /**
@@ -31,12 +33,12 @@ class clienteControlador
     {
         $request->validate([
             'cif' => 'required|string|max:255',
-            'nombre' => 'required|string|max:15',
-            'telefono' => 'required|email|max:255',
-            'correo' => 'required|string|max:255',
+            'nombre' => 'required|string|max:255',
+            'telefono' => 'required|string|max:20',
+            'correo' => 'required|email|max:255',
             'cuenta_corriente' => 'required|string|max:255',
-            'pais' => 'required|string|max:10',
-            'moneda' => 'required|string|',
+            'pais' => 'required|string|max:50',
+            'moneda' => 'required|string|max:10',
             'importe_cuota_mensual' => 'required|string|in:Pendiente,Realizada,Cancelada',
         ]);
 
@@ -50,6 +52,9 @@ class clienteControlador
             'moneda' => $request->moneda,
             'importe_cuota_mensual' => $request->cuota_mensual,
         ]);
+
+        return redirect()->back()->with('success', 'Cliente registrado exitosamente.');
+
     }
 
     /**

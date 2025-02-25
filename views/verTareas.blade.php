@@ -17,11 +17,12 @@
                 <th>Provincia</th>
                 <th>Estado</th>
                 <th>Fecha Creación</th>
-                <th>Fecha Realización</th>x
+                <th>Fecha Realización</th>
                 <th>Descripción</th>
                 <th>Anotaciones Anteriores</th>
                 <th>Anotaciones Posteriores</th>
                 <th>Fichero Resumen</th>
+                <th> Acciones </th>
             </tr>
         </thead>
         <tbody>
@@ -48,6 +49,14 @@
                         @else
                             No disponible
                         @endif
+                    </td>
+                    <td>
+                        <form action="{{ route('tarea.destroy', $tarea->id) }}" method="POST" style="display:inline;">
+                            @csrf
+                            @method('DELETE')
+                            <button type="submit" class="btn btn-danger">Borrar</button>
+                        </form>
+                        <a href="{{ route('tarea.edit', $tarea->id) }}" class="btn btn-primary">Modificar</a>
                     </td>
                 </tr>
             @endforeach

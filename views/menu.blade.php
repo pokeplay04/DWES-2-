@@ -19,8 +19,8 @@
             <span class="navbar-toggler-icon"></span>
         </button>
         <div class="collapse navbar-collapse" id="navbarNav">
-            <ul class="navbar-nav w-100 justify-content-around">
-                <li class="nav-item">
+        <ul class="navbar-nav w-100 justify-content-around">
+            <li class="nav-item">
                     <a class="nav-link" href="{{ url('inicio') }}">Inicio</a>
                 </li>
                 <li class="nav-item dropdown">
@@ -30,10 +30,18 @@
                         <li><a class="dropdown-item" href="{{ url('tarea/create') }}">Añadir tarea</a></li>
                     </ul>
                 </li>
-                <li class="nav-item"><a class="nav-link dropdown-toggle" href="#" id="tareasDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false"> Clientes </a>
-                    <ul class="dropdown-menu" aria-labelledby="tareasDropdown">
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="clientesDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false"> Clientes </a>
+                    <ul class="dropdown-menu" aria-labelledby="clientesDropdown">
                         <li><a class="dropdown-item" href="{{ url('cliente') }}">Ver lista de clientes</a></li>
-                        <li><a class="nav-link" href="{{ url('cliente/create') }}">Añadir cliente</a></li>
+                        <li><a class="dropdown-item" href="{{ url('cliente/create') }}">Añadir cliente</a></li>
+                    </ul>
+                </li>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="clientesDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false"> Operarios </a>
+                    <ul class="dropdown-menu" aria-labelledby="clientesDropdown">
+                        <li><a class="dropdown-item" href="{{ url('operario') }}">Ver lista de operarios</a></li>
+                        <li><a class="dropdown-item" href="{{ url('operario/create') }}">Añadir operario</a></li>
                     </ul>
                 </li>
             </ul>

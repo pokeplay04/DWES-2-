@@ -15,6 +15,7 @@
                 <th>País</th>
                 <th>Moneda</th>
                 <th>Importe Cuota Mensual</th>
+                <th> Acciones </th>
             </tr>
         </thead>
         <tbody>
@@ -29,6 +30,14 @@
                     <td>{{ $cliente->pais }}</td>
                     <td>{{ $cliente->moneda }}</td>
                     <td>{{ $cliente->importe_cuota_mensual }}</td>
+                    <td>
+                        <form action="{{ route('cliente.destroy', $cliente->id) }}" method="POST" style="display:inline;">
+                            @csrf
+                            @method('DELETE')
+                            <button type="submit" class="btn btn-danger">Borrar</button>
+                        </form>
+                        <a href="{{ route('cliente.edit', $cliente->id) }}" class="btn btn-primary">Modificar</a>
+                    </td>
                 </tr>
             @endforeach
         </tbody>

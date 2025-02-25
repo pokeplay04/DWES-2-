@@ -109,6 +109,9 @@ class NuevaControlador
      */
     public function destroy(string $id)
     {
-        //
+        $tarea = Tarea::findOrFail($id);
+        $tarea->delete();
+
+        return redirect()->back()->with('success', 'Tarea eliminada exitosamente.');
     }
 }
